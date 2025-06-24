@@ -8,18 +8,23 @@ import jade.core.behaviours.Behaviour;
 
 /**
  *
- * @author yexi24
+ * Agent simple disposant d'un seul comportement générique.
  */
 public class GenericAgent extends DefaultAgent{
-   
-     @Override
-     protected void setup(){
-        //initialisation de l'agent
+
+    /**
+     * Initialise l'agent et ajoute son comportement unique.
+     */
+    @Override
+    protected void setup(){
+        // initialisation de l'agent
         super.setup();
         addBehaviour(new GenericBehaviour(this));
      }
 
-
+    /**
+     * Comportement qui supprime l'agent après un certain nombre d'itérations.
+     */
     public class GenericBehaviour extends Behaviour{
 
         private int counter = 0;
@@ -38,6 +43,9 @@ public class GenericAgent extends DefaultAgent{
             }
         }
 
+        /**
+         * Teste si le nombre d'actions effectuees a atteint la limite.
+         */
         @Override
         public boolean done(){
             System.out.println("done" + getAgent().getAID().getName());

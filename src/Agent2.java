@@ -7,17 +7,20 @@ import jade.core.behaviours.CyclicBehaviour;
 import jade.core.behaviours.OneShotBehaviour;
 
 /**
- *
- * @author gengji23
+ * Agent d'exemple utilisant un comportement à un coup et un comportement cyclique.
  */
 public class Agent2 extends DefaultAgent{
     private int agentCount = 0;
    
+    /**
+     * Initialise l'agent et ajoute ses comportements.
+     */
     @Override
     protected void setup(){
-        //initialisation de l'agent
+        // initialisation de l'agent
         super.setup();
        
+        // Comportement exécuté une seule fois
         addBehaviour(new OneShotBehaviour(this) {
             @Override
             public void onStart() {
@@ -32,6 +35,7 @@ public class Agent2 extends DefaultAgent{
             }
         });
        
+        // Comportement répété jusqu'à la condition de fin
         addBehaviour(new CyclicBehaviour(this){
             private int counter = 0;
             private static final int END = 3;
@@ -50,6 +54,9 @@ public class Agent2 extends DefaultAgent{
                 }
             }
 
+            /**
+             * Indique si le comportement doit se terminer.
+             */
             private boolean isDone(int counter){
                 return counter == END;
             }

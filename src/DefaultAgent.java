@@ -5,19 +5,24 @@
 
 import jade.core.Agent;
 /**
- *
- * @author gengji23
+ * Agent de base qui affiche un message au démarrage et à la fin.
  */
 public class DefaultAgent extends Agent {
-     @Override
-     protected void setup(){
-        //initialisation de l'agent
+    /**
+     * Appelée à la création de l'agent.
+     */
+    @Override
+    protected void setup(){
+        // initialisation de l'agent
         System.out.println("Agent" + getAID().getName()+" ready");
     }
 
-     @Override
+    /**
+     * Appelée juste avant la destruction de l'agent.
+     */
+    @Override
     protected void takeDown(){
-        //traitement de fin
+        // traitement de fin
         System.out.println("Agent" + getAID().getName() +" done");
     }
 }

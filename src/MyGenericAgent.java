@@ -8,18 +8,23 @@ import jade.core.behaviours.Behaviour;
 
 /**
  *
- * @author gengji23
+ * Agent possédant deux comportements internes : un générique et un trivial.
  */
 public class MyGenericAgent extends DefaultAgent{
+    /**
+     * Initialise l'agent et ajoute ses comportements internes.
+     */
     @Override
     protected void setup(){
-        //initialisation de l'agent
+        // initialisation de l'agent
         super.setup();
         addBehaviour(new GenericBehaviour(this));
         addBehaviour(new TrivialBehaviour(this));
      }
 
-
+    /**
+     * Premier comportement qui incrémente un compteur à chaque appel.
+     */
     public class GenericBehaviour extends Behaviour{
 
         private int counter = 0;
@@ -42,7 +47,10 @@ public class MyGenericAgent extends DefaultAgent{
         }
 
     }
-    
+
+    /**
+     * Deuxième comportement qui se termine immédiatement.
+     */
     public class TrivialBehaviour extends Behaviour{
 
         

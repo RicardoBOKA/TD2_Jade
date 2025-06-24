@@ -7,18 +7,23 @@ import jade.core.Agent;
 import jade.core.behaviours.Behaviour;
 /**
  *
- * @author gengji23
+ * Agent avec deux comportements: un générique limité et un trivial.
  */
 public class MyGenericBehaviourAgent2 extends DefaultAgent{
+    /**
+     * Initialise l'agent et enregistre les deux comportements.
+     */
     @Override
     protected void setup(){
-        //initialisation de l'agent
+        // initialisation de l'agent
         super.setup();
         addBehaviour(new GenericBehaviour(this));
         addBehaviour(new TrivialBehaviour(this));
      }
 
-
+    /**
+     * Comportement principal qui supprime l'agent après quelques itérations.
+     */
     public class GenericBehaviour extends Behaviour{
 
         private int counter = 0;
@@ -45,13 +50,18 @@ public class MyGenericBehaviourAgent2 extends DefaultAgent{
             System.out.println("done " + getAgent().getAID().getName());
             return isDone(counter);
         }
-       
+        /**
+         * Définit la condition de fin du comportement.
+         */
         private boolean isDone(int counter){
             return counter == END;
         }
 
     }
-   
+
+    /**
+     * Second comportement sans condition de fin spécifique.
+     */
     public class TrivialBehaviour extends Behaviour{
 
         TrivialBehaviour(Agent a){

@@ -7,17 +7,20 @@ import jade.core.behaviours.CyclicBehaviour;
 import jade.core.behaviours.OneShotBehaviour;
 
 /**
- *
- * @author yexi24
+ * Variante de {@link Agent2} où le compteur est incrémenté à chaque démarrage du comportement.
  */
 public class Agent3 extends DefaultAgent {
     private int agentCount = 0;
     
+    /**
+     * Initialise l'agent et met en place ses comportements.
+     */
     @Override
     protected void setup(){
-        //initialisation de l'agent
+        // initialisation de l'agent
         super.setup();
         
+        // Comportement exécuté une seule fois
         addBehaviour(new OneShotBehaviour(this) {
             @Override
             public void onStart() {
@@ -32,6 +35,7 @@ public class Agent3 extends DefaultAgent {
             }
         });
         
+        // Comportement répété qui incrémente un compteur
         addBehaviour(new CyclicBehaviour(this){
             private int counter = 0;
             private static final int END = 3;
@@ -56,6 +60,9 @@ public class Agent3 extends DefaultAgent {
                 }
             }
 
+            /**
+             * Indique si le comportement doit se terminer.
+             */
             private boolean isDone(int counter){
                 return counter == END;
             }

@@ -9,18 +9,20 @@ import jade.core.behaviours.WakerBehaviour;
 
 /**
  *
- * @author yexi24
+ * Copie de PrintBehaviourAgent pour experimentations.
  */
 public class PrintBehaviourAgent extends DefaultAgent {
     private static final int TIMEOUT = 1000;
     private static final int WAKEUP_TIME = 5000;
-    
+
+    /**
+     * Initialise l'agent et enregistre ses comportements.
+     */
     @Override
     protected void setup(){
-        //initialisation de l'agent
         super.setup();
-        
-        // OneShotBehaviour
+
+        // Comportement a un coup
         addBehaviour(new OneShotBehaviour() {
             @Override
             public void onStart() {
@@ -41,6 +43,7 @@ public class PrintBehaviourAgent extends DefaultAgent {
         });
 
         // TickerBehaviour
+        // Comportement périodique
         addBehaviour(new TickerBehaviour(this, TIMEOUT) {
             @Override
             public void onStart() {
@@ -55,7 +58,8 @@ public class PrintBehaviourAgent extends DefaultAgent {
             }
         });
 
-        //WakerBehaviour
+        // WakerBehaviour
+        // Comportement différé exécuté après un délai
         addBehaviour(new WakerBehaviour(this, WAKEUP_TIME) {
             @Override
             public void onStart() {
