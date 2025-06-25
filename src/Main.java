@@ -22,11 +22,11 @@ public class Main {
 
         try {
             container.createNewAgent("agent2", Agent2.class.getName(), null).start();
-            container.createNewAgent("agent3", Agent3.class.getName(), null).start();
-            container.createNewAgent("genericAgent", GenericAgent.class.getName(), null).start();
-            container.createNewAgent("myGenericAgent", MyGenericAgent.class.getName(), null).start();
-            container.createNewAgent("myGenericBehaviourAgent2", MyGenericBehaviourAgent2.class.getName(), null).start();
-            container.createNewAgent("printBehaviourAgent", PrintBehaviourAgent.class.getName(), null).start();
+            //container.createNewAgent("agent3", Agent3.class.getName(), null).start();
+            //container.createNewAgent("genericAgent", GenericAgent.class.getName(), null).start();
+            //container.createNewAgent("myGenericAgent", MyGenericAgent.class.getName(), null).start();
+            //container.createNewAgent("myGenericBehaviourAgent2", MyGenericBehaviourAgent2.class.getName(), null).start();
+            //container.createNewAgent("printBehaviourAgent", PrintBehaviourAgent.class.getName(), null).start();
         } catch (StaleProxyException e) {
             e.printStackTrace();
         }
