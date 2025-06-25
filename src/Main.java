@@ -21,7 +21,10 @@ public class Main {
         AgentContainer container = rt.createMainContainer(p);
 
         try {
-            container.createNewAgent("agent2", Agent2.class.getName(), null).start();
+            container.createNewAgent("jack", HandleMessageAgent.class.getName(), null).start();
+            container.createNewAgent("lola", SendMessageAgent.class.getName(), null).start();
+            container.createNewAgent("jim", JimAgent.class.getName(), null).start();
+            //container.createNewAgent("agent2", Agent2.class.getName(), null).start();
             //container.createNewAgent("agent3", Agent3.class.getName(), null).start();
             //container.createNewAgent("genericAgent", GenericAgent.class.getName(), null).start();
             //container.createNewAgent("myGenericAgent", MyGenericAgent.class.getName(), null).start();
